@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="600" y="36" text-anchor="middle" font-size="24" font-weight="bold" fill="#232F3E">AWS Lambda — Serverless Reference Architecture</text>
+  <text x="600" y="60" text-anchor="middle" font-size="13" fill="#666666">User &#8594; Route 53 &#8594; CloudFront / WAF &#8594; API Gateway &#8594; Lambda &#8594; DynamoDB / S3 / SQS</text>
+
+  <!-- Users -->
+  <g>
+    <circle cx="60" cy="180" r="26" fill="#FF9900" stroke="#CC7A00" stroke-width="2"/>
+    <circle cx="60" cy="172" r="8" fill="#ffffff"/>
+    <path d="M 46 196 Q 60 180 74 196" stroke="#ffffff" stroke-width="3" fill="none"/>
+    <text x="60" y="226" text-anchor="middle" font-size="13" font-weight="bold" fill="#232F3E">Users</text>
+    <text x="60" y="242" text-anchor="middle" font-size="11" fill="#666666">Web / Mobile</text>
+  </g>
+
+  <!-- Route 53 -->
+  <g>
+    <rect x="130" y="140" width="130" height="80" rx="6" fill="#8C4FFF" stroke="#6B21C8" stroke-width="2"/>
+    <text x="195" y="168" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">Route 53</text>
+    <text x="195" y="188" text-anchor="middle" font-size="11" fill="#E8D9FF">DNS + Health Checks</text>
+    <text x="195" y="204" text-anchor="middle" font-size="11" fill="#E8D9FF">Failover Routing</text>
+  </g>
+
+  <!-- CloudFront -->
+  <g>
+    <rect x="300" y="140" width="130" height="80" rx="6" fill="#8C4FFF" stroke="#6B21C8" stroke-width="2"/>
+    <text x="365" y="168" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">CloudFront</text>
+    <text x="365" y="188" text-anchor="middle" font-size="11" fill="#E8D9FF">Global CDN Edge</text>
+    <text x="365" y="204" text-anchor="middle" font-size="11" fill="#E8D9FF">Static Caching</text>
+  </g>
+
+  <!-- WAF -->
+  <g>
+    <rect x="470" y="140" width="130" height="80" rx="6" fill="#D13239" stroke="#9E1B20" stroke-width="2"/>
+    <text x="535" y="168" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">AWS WAF</text>
+    <text x="535" y="188" text-anchor="middle" font-size="11" fill="#FBD9DB">SQLi / XSS Rules</text>
+    <text x="535" y="204" text-anchor="middle" font-size="11" fill="#FBD9DB">Rate Limiting</text>
+  </g>
+
+  <!-- API Gateway -->
+  <g>
+    <rect x="640" y="140" width="150" height="80" rx="6" fill="#8C4FFF" stroke="#6B21C8" stroke-width="2"/>
+    <text x="715" y="168" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">API Gateway</text>
+    <text x="715" y="188" text-anchor="middle" font-size="11" fill="#E8D9FF">REST / HTTP API</text>
+    <text x="715" y="204" text-anchor="middle" font-size="11" fill="#E8D9FF">Throttling + Auth</text>
+  </g>
+
+  <!-- EventBridge -->
+  <g>
+    <rect x="830" y="140" width="150" height="80" rx="6" fill="#FF9900" stroke="#CC7A00" stroke-width="2"/>
+    <text x="905" y="168" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">EventBridge</text>
+    <text x="905" y="188" text-anchor="middle" font-size="11" fill="#FFF3D6">Cron Schedules</text>
+    <text x="905" y="204" text-anchor="middle" font-size="11" fill="#FFF3D6">Event Bus Rules</text>
+  </g>
+
+  <!-- SQS trigger -->
+  <g>
+    <rect x="1020" y="140" width="140" height="80" rx="6" fill="#FF9900" stroke="#CC7A00" stroke-width="2"/>
+    <text x="1090" y="168" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">Amazon SQS</text>
+    <text x="1090" y="188" text-anchor="middle" font-size="11" fill="#FFF3D6">Async Queue</text>
+    <text x="1090" y="204" text-anchor="middle" font-size="11" fill="#FFF3D6">DLQ + Retries</text>
+  </g>
+
+  <!-- Arrows top row -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#232F3E"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#1D4ED8"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#CC7A00"/>
+    </marker>
+  </defs>
+  <g stroke="#232F3E" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="88" y1="180" x2="128" y2="180"/>
+    <line x1="262" y1="180" x2="298" y2="180"/>
+    <line x1="432" y1="180" x2="468" y2="180"/>
+    <line x1="602" y1="180" x2="638" y2="180"/>
+  </g>
+  <text x="108" y="168" text-anchor="middle" font-size="10" fill="#232F3E">HTTPS</text>
+  <text x="280" y="168" text-anchor="middle" font-size="10" fill="#232F3E">DNS</text>
+  <text x="450" y="168" text-anchor="middle" font-size="10" fill="#232F3E">Filtered</text>
+  <text x="620" y="168" text-anchor="middle" font-size="10" fill="#232F3E">HTTPS</text>
+
+  <!-- VPC -->
+  <rect x="40" y="280" width="1120" height="440" rx="8" fill="#EAF5EA" stroke="#3D9E4D" stroke-width="2"/>
+  <text x="60" y="306" font-size="15" font-weight="bold" fill="#2E7D32">VPC — 10.0.0.0/16 (ap-southeast-1)</text>
+
+  <!-- AZ-1 dashed box -->
+  <rect x="60" y="320" width="520" height="380" rx="6" fill="none" stroke="#3D9E4D" stroke-width="1.5" stroke-dasharray="8 5"/>
+  <text x="76" y="344" font-size="13" font-weight="bold" fill="#2E7D32">Availability Zone 1 — ap-southeast-1a</text>
+
+  <!-- AZ-2 dashed box -->
+  <rect x="620" y="320" width="520" height="380" rx="6" fill="none" stroke="#3D9E4D" stroke-width="1.5" stroke-dasharray="8 5"/>
+  <text x="636" y="344" font-size="13" font-weight="bold" fill="#2E7D32">Availability Zone 2 — ap-southeast-1b</text>
+
+  <!-- App subnet AZ-1 -->
+  <rect x="80" y="356" width="480" height="150" rx="5" fill="#FFF8E1" stroke="#E67E22" stroke-width="1.5"/>
+  <text x="94" y="378" font-size="12" font-weight="bold" fill="#B25E09">App Subnet (private) — 10.0.11.0/24</text>
+  <rect x="100" y="388" width="200" height="60" rx="5" fill="#FF9900" stroke="#CC7A00" stroke-width="1.5"/>
+  <text x="200" y="412" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">Lambda: api-handler</text>
+  <text x="200" y="430" text-anchor="middle" font-size="10" fill="#FFF3D6">Python 3.12 &#8226; 512 MB &#8226; 30 s timeout</text>
+  <rect x="320" y="388" width="200" height="60" rx="5" fill="#FF9900" stroke="#CC7A00" stroke-width="1.5"/>
+  <text x="420" y="412" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">Lambda: order-worker</text>
+  <text x="420" y="430" text-anchor="middle" font-size="10" fill="#FFF3D6">SQS trigger &#8226; batch 10 &#8226; 5 min timeout</text>
+  <text x="94" y="482" font-size="11" fill="#666666">Reserved concurrency: 100 (api) / 50 (worker) &#8226; X-Ray tracing on &#8226; Logs &#8594; CloudWatch</text>
+
+  <!-- Data subnet AZ-1 -->
+  <rect x="80" y="518" width="480" height="162" rx="5" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="94" y="540" font-size="12" font-weight="bold" fill="#0D47A1">Data Subnet (private, isolated) — 10.0.21.0/24</text>
+  <rect x="100" y="550" width="200" height="60" rx="5" fill="#527FFF" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="200" y="574" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">DynamoDB</text>
+  <text x="200" y="592" text-anchor="middle" font-size="10" fill="#DCE6FF">Orders table &#8226; On-demand</text>
+  <text x="200" y="604" text-anchor="middle" font-size="10" fill="#DCE6FF">Gateway VPC endpoint</text>
+  <rect x="320" y="550" width="200" height="60" rx="5" fill="#3D9E4D" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="420" y="574" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">Amazon S3</text>
+  <text x="420" y="592" text-anchor="middle" font-size="10" fill="#EAF5EA">Receipts bucket &#8226; Versioned</text>
+  <text x="420" y="604" text-anchor="middle" font-size="10" fill="#EAF5EA">Gateway VPC endpoint</text>
+  <text x="94" y="648" font-size="11" fill="#666666">No NAT Gateway needed — all AWS traffic stays on the AWS backbone via VPC endpoints.</text>
+
+  <!-- App subnet AZ-2 -->
+  <rect x="640" y="356" width="480" height="150" rx="5" fill="#FFF8E1" stroke="#E67E22" stroke-width="1.5"/>
+  <text x="654" y="378" font-size="12" font-weight="bold" fill="#B25E09">App Subnet (private) — 10.0.12.0/24</text>
+  <rect x="660" y="388" width="200" height="60" rx="5" fill="#FF9900" stroke="#CC7A00" stroke-width="1.5"/>
+  <text x="760" y="412" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">Lambda: api-handler</text>
+  <text x="760" y="430" text-anchor="middle" font-size="10" fill="#FFF3D6">Same code &#8226; auto-scaled</text>
+  <rect x="880" y="388" width="200" height="60" rx="5" fill="#FF9900" stroke="#CC7A00" stroke-width="1.5"/>
+  <text x="980" y="412" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">Lambda: nightly-job</text>
+  <text x="980" y="430" text-anchor="middle" font-size="10" fill="#FFF3D6">EventBridge cron &#8226; 02:00 daily</text>
+  <text x="654" y="482" font-size="11" fill="#666666">Lambda scales per request across AZs — no servers, no load balancer to manage.</text>
+
+  <!-- Data subnet AZ-2 -->
+  <rect x="640" y="518" width="480" height="162" rx="5" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="654" y="540" font-size="12" font-weight="bold" fill="#0D47A1">Data Subnet (private, isolated) — 10.0.22.0/24</text>
+  <rect x="660" y="550" width="200" height="60" rx="5" fill="#527FFF" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="760" y="574" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">DynamoDB</text>
+  <text x="760" y="592" text-anchor="middle" font-size="10" fill="#DCE6FF">Global table replica</text>
+  <text x="760" y="604" text-anchor="middle" font-size="10" fill="#DCE6FF">Point-in-time recovery</text>
+  <rect x="880" y="550" width="200" height="60" rx="5" fill="#FF9900" stroke="#CC7A00" stroke-width="1.5"/>
+  <text x="980" y="574" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">Secrets Manager</text>
+  <text x="980" y="592" text-anchor="middle" font-size="10" fill="#FFF3D6">API keys &#8226; auto-rotation</text>
+  <text x="980" y="604" text-anchor="middle" font-size="10" fill="#FFF3D6">Interface VPC endpoint</text>
+  <text x="654" y="648" font-size="11" fill="#666666">Least-privilege IAM roles per function — no shared credentials, no long-lived keys.</text>
+
+  <!-- Arrows: API GW -> Lambda, EventBridge -> nightly, SQS -> worker -->
+  <g stroke="#232F3E" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M 715 220 L 715 268 L 200 268 L 200 354"/>
+  </g>
+  <text x="727" y="252" font-size="10" fill="#232F3E">HTTPS (invoke)</text>
+  <g stroke="#CC7A00" stroke-width="2" fill="none" marker-end="url(#arrowOrange)">
+    <path d="M 905 220 L 905 268 L 980 268 L 980 354"/>
+    <path d="M 1090 220 L 1090 300 L 420 300 L 420 354"/>
+  </g>
+  <text x="917" y="252" font-size="10" fill="#CC7A00">cron trigger</text>
+  <text x="700" y="292" font-size="10" fill="#CC7A00">SQS event source mapping</text>
+
+  <!-- Arrows: Lambda -> DynamoDB / S3 -->
+  <g stroke="#1D4ED8" stroke-width="2" fill="none" marker-end="url(#arrowBlue)">
+    <line x1="200" y1="450" x2="200" y2="516"/>
+    <line x1="420" y1="450" x2="420" y2="516"/>
+    <line x1="760" y1="450" x2="760" y2="516"/>
+    <line x1="980" y1="450" x2="980" y2="516"/>
+  </g>
+  <text x="214" y="488" font-size="10" fill="#1D4ED8">PutItem (idempotent)</text>
+  <text x="434" y="488" font-size="10" fill="#1D4ED8">PutObject via endpoint</text>
+  <text x="774" y="488" font-size="10" fill="#1D4ED8">GetItem / Query</text>
+  <text x="994" y="488" font-size="10" fill="#1D4ED8">GetSecretValue</text>
+
+  <!-- Observability strip -->
+  <rect x="40" y="726" width="1120" height="54" rx="5" fill="#FFF8E1" stroke="#E67E22" stroke-width="1.5"/>
+  <text x="60" y="747" font-size="12" font-weight="bold" fill="#B25E09">Observability — CloudWatch + X-Ray</text>
+  <text x="60" y="766" font-size="12" fill="#B25E09">Structured JSON logs &#8226; Alarms: Errors, Throttles, Duration p95, IteratorAge &#8226; Dashboards per function &#8226; Cost alert at 80% of monthly budget</text>
+</svg>
